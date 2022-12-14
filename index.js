@@ -57,20 +57,22 @@ function checkWinner() {
     lineChecker(t3, t5, t7)
   ) {
     if (flag) {
-      alert("Player 1 wins");
+      document.getElementById("h1").innerHTML = "Player 1 Wins";
       player1score += 1;
       document.getElementById("player1score").innerHTML =
         "Score: " + player1score;
     } else {
-      alert("Player 2 wins");
+      document.getElementById("h1").innerHTML = "Player 2 Wins";
       player2score += 1;
       document.getElementById("player2score").innerHTML =
         "Score: " + player2score;
     }
-    gameReset();
+    document.querySelectorAll(".tile").forEach((item) => {
+      item.removeEventListener("click", clickTile);
+      item.style.cursor = "default";
+    });
   } else if (marks.includes("empty") == false) {
-    alert("Draw");
-    gameReset();
+    document.getElementById("h1").innerHTML = "Draw";
   } else {
     gameStatus();
   }
@@ -80,13 +82,21 @@ function lineChecker(tile1, tile2, tile3) {
   let t1 = tile1.getAttribute("mark");
   let t2 = tile2.getAttribute("mark");
   let t3 = tile3.getAttribute("mark");
+  if (t1 == t2 && t2 == t3 && t1 != "empty" && t2 != "empty" && t3 != "empty") {
+    tile1.style.backgroundColor = "purple";
+    tile2.style.backgroundColor = "purple";
+    tile3.style.backgroundColor = "purple";
+  }
   return (
     t1 == t2 && t2 == t3 && t1 != "empty" && t2 != "empty" && t3 != "empty"
   );
 }
 
 function gameReset() {
+  document.getElementById("h1").innerHTML = "Tic-Tac-Toe";
   document.querySelectorAll(".tile").forEach((tile) => {
+    tile.addEventListener("click", clickTile);
+    tile.setAttribute("style", "cursor:pointer");
     tile.innerHTML = "";
     tile.setAttribute("mark", "empty");
   });

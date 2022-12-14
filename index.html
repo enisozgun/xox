@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Tic-Tac-Toe</h1>
+    <h1 id="h1">Tic-Tac-Toe</h1>
     <div class="container">
       <div class="player-card1">
         <h2 id="player1" class="h2-turn">Player 1's Turn (X)</h2>
@@ -29,7 +29,8 @@
         <div class="tile" id="t8" mark="empty"></div>
         <div class="tile" id="t9" mark="empty"></div>
       </div>
-    </div>
+      
+    </div><button onclick=gameReset()>Clear Board</button>
     <script src="index.js"></script>
   </body>
 </html>

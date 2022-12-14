@@ -9,20 +9,21 @@ h1 {
 }
 
 .board {
-  width: 38%;
+  width: 600px;
   background-color: black;
   border-radius: 15px;
   margin: auto;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1%;
+  padding: 10px;
 }
 .tile {
-  height: 220px;
-  width: 220px;
+  height: 180px;
+  width: 180px;
   background-color: gray;
   margin: 10px;
+  cursor: pointer;
 }
 .row {
   display: inline-flex;
@@ -45,4 +46,15 @@ svg {
 
 .h2-turn {
   color: purple;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  margin-top: 50px;
+  cursor: pointer;
+
 }
