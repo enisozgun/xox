@@ -42,6 +42,10 @@ function gameStatus() {
 }
 
 function checkWinner() {
+  let marks = [];
+  document.querySelectorAll(".tile").forEach((tile) => {
+    marks.push(tile.getAttribute("mark"));
+  });
   if (
     lineChecker(t1, t2, t3) ||
     lineChecker(t4, t5, t6) ||
@@ -63,6 +67,9 @@ function checkWinner() {
       document.getElementById("player2score").innerHTML =
         "Score: " + player2score;
     }
+    gameReset();
+  } else if (marks.includes("empty") == false) {
+    alert("Draw");
     gameReset();
   } else {
     gameStatus();
